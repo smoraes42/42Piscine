@@ -3,9 +3,12 @@
 echo "[+] Commit: "
 read -p "Introduce commit: " coomit
 
-cd  ~/Users/smoraes-/git/42Piscine
-rsync -av --progress ../../Templates/Repos/* . --exclude .git
+
+rsync -av --progress ~/Templates/Repos/* ~/git/42Piscine --exclude .git
+cd ~/git/42Piscine/
 
 git add .
 git commit -m $coomit
 git push
+
+cd -
