@@ -1,33 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   aff_last_param.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 10:18:48 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/08 10:50:01 by smoraes-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	last_arg(char *str)
 {
-	write(1, &c, 1);
+	int ind = 0;
+	while (str[ind] != '\0')
+		write(1, &str[ind++], 1);
 }
 
-char	ft_last_param(char *str)
+int	main(int argc, char **argv)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if (argc <=1)
 	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	ft_putchar('\n');
-	return (*str);
-}
-
-int		main(int argc, char **argv)
-{
-	if (argc < 2)
-	{
-		ft_putchar('\n');
+		write(1,"\n",1);
+		return (0);
 	}
 	else
 	{
-		ft_last_param(argv[argc - 1]);
+		last_arg(argv[argc - 1]);
 	}
+	
 	return (0);
 }
