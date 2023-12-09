@@ -6,7 +6,7 @@
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 11:15:05 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/09 12:38:33 by smoraes-         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:15:00 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,11 @@ int main(void)
 	arr[0] = 42;
 	arr[1] = 1337;
 	arr[2] = -21;
+	printf("\n");
 	for (int i = 0; i < 10; i++)
 	{
 		printf("&arr[%d]: %p  ||  arr[%d]: %d\n", i,&arr[i],i,arr[i]);
 	}
-
-
 
 	// FAKE array
 	int *ptr = alloca(sizeof(int) *10);
@@ -43,8 +42,20 @@ int main(void)
 	*(ptr + 0) = 42;
 	*(ptr + 1) = 1337;
 	*(ptr + 2) = -21;
+	printf("\n");
 	for (int i = 0; i < 10; i++)
-		printf("&ptr + 1: %p ||  *(ptr + %d): %d\n", &*(ptr+i),i,*(ptr + i));
+		printf("&ptr + 1: %p ||  *(ptr + %d): %d\n", &*(ptr+i),i,*(ptr+i));
+												// =  *(ptr++)   *(ptr++));
+	// FAKE array CONST POINTER
+	int * const cptr = alloca(sizeof(int) *10);
+
+	*(cptr + 0) = 42;
+	*(cptr + 1) = 1337;
+	*(cptr + 2) = -21;
+	printf("\n");
+	for (int i = 0; i < 10; i++)
+		printf("&cptr + 1: %p ||  *(cptr + %d): %d\n", &*(cptr+i),i,*(cptr+i));
+										 // Not allowed *(ptr++)     *(ptr++));
 
 	return (0);
 }
