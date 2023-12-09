@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 11:05:24 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/09 16:50:06 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/09 16:42:29 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/09 17:19:02 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(int nb)
+void	ft__printf(char *arr)
 {
-	long	nbl_tmp;
-	char	c[10];
-	short	i;
+	int	ind;
 
-	nbl_tmp = nb;
-	i = 0;
-	if (0 == nb)
-		write(1, "0", 1);
-	if (nbl_tmp < 0)
-	{
-		nbl_tmp *= -1;
-		write(1, "-", 1);
-	}
-	while (nbl_tmp % 10)
-	{
-		c[i] = (nbl_tmp % 10) + 48;
-		nbl_tmp = nbl_tmp / 10;
-		i++;
-	}
-	while (i-- > 0)
-		write(1, &c[i], 1);
-	return ;
+	ind = 0;
+	while (arr[ind] != '\0')
+		ind++;
+	write(1,arr,ind);
 }
-/*
-int main(void)
+
+void ft_putnbr_base(int nbr, char *base)
 {
-	ft_putnbr(4-42);
+
+	(void)*base;
+	(void)nbr;
+}
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	(void)argv;
+	//if (argc != 2)
+	//	return (0);
+	//else
+	//{
+		ft__printf("test");
+	//}	
 	return (0);
 }
-*/
