@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_Pointer_Cast.c                                  :+:      :+:    :+:   */
+/*   03_Pointer_Malloc.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 07:35:08 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/09 08:20:37 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/09 09:43:16 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/09 10:03:59 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int main()
+void	bar()
 {
 	int nb;
-	int *ptr;
+	nb = 1337;
+}
 
-	nb = 42;
-	ptr = &nb;
+int *foo()
+{
+	int n;
 
-	printf("&nb:\t\t\t%p\n", &nb);
-	printf("ptr ( ptr = &nb):\t%p\n", ptr);
-	printf("*ptr:\t\t\t%d\n", *ptr);
-	printf("&*ptr:\t\t\t%p\n", &ptr);
-	printf("*(float *)ptr:\t\t%0.60f\n",*(float *)ptr);
+	n = 42;
+	return &n;
+}
 
-	int bin;
-	int *ptr_b;
+int main(void)
+{
+	int *pn;
 
-	bin = 0b00111001;
-	ptr_b = &bin;
+	pn = foo();
+	printf("*pn = foo():\t%d\n", *pn);
+	bar();
+	printf("bar():\t%d\n", *pn);
 
-	printf("*ptr_b:\t\t\t%d\n *(char *)ptr_b:\t%c\n", *ptr_b, *(char *)ptr_b);
-	printf("*ptr_b:\t\t\t%d\n *(short *)ptr_b:\t%d\n", *ptr_b, *(short *)ptr_b);
+
+	return (0);
 }
