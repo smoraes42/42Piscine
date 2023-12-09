@@ -6,7 +6,7 @@
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:05:24 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/08 14:26:38 by smoraes-         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:39:32 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	ft_putnbr(int nb)
 	nbl_tmp = nb;
 	i = 0;
 	if (0 == nb)
-	{
 		write(1, "0", 1);
-		return ;
-	}
 	if (nbl_tmp < 0)
 	{
 		nbl_tmp *= -1;
@@ -38,10 +35,12 @@ void	ft_putnbr(int nb)
 	}
 	while (i-- > 0)
 		write(1, &c[i], 1);
+	return;
 }
-
+/*
 int main(void)
 {
 	ft_putnbr(4-42);
 	return (0);
 }
+*/
