@@ -1,25 +1,22 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int ft_iterative_power(int nb, int power)
+int	ft_recursive_power(int nb, int power)
 {
-	int res;
-
-	res = 1;
-	if(power < 0)
-		return (0);
+	if (power == 1)
+		return (nb);
 	else if (power == 0)
 		return (1);
+	else if (power >= 2)
+		return (nb * ft_recursive_power(nb - 1, power -1));
 	else
-		while(power--)
-			res *= nb;
-	return (res);
+		return (0);
 }
 
-int main(void)
+int	main(void)
 {
-	int y = ft_iterative_power(2,-1);
+	int y = ft_recursive_power(2, 3);
 	printf("%d", y);
+
 	return (0);
 }
-
