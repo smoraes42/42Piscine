@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 15:46:50 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/11 17:05:54 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/11 17:06:39 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/11 18:11:24 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,25 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	ft_strlen(char *src)
+int	*ft_range(int min, int max)
 {
-	int	count;
+	int	size;
+	int	*arr;
+	int	i;
 
-	count = 0;
-	while (*src++ != '\0')
-		count++;
-	return (count);
-}
-
-char	*ft_strdup(char *src)
-{
-	int		lg;
-	int		i;
-	char	*dst;
-
-	i = 0;
-	lg = ft_strlen(src);
-	dst = malloc(lg * sizeof(char));
-	if (dst != NULL)
+	if (min >= max)
 	{
-		while (src[i] != '\0')
+		return (NULL);
+	}
+	size = max - min;
+	i = 0;
+	arr = (int *)malloc(size * sizeof(int));
+	if (arr != NULL)
+	{
+		while (i < size)
 		{
-			dst[i] = src[i];
+			arr[i] = min;
+			min++;
 			i++;
 		}
 	}
@@ -45,21 +40,25 @@ char	*ft_strdup(char *src)
 	{
 		return (NULL);
 	}
-	return (dst);
+	return (arr);
 }
 /*
-int main(void)
+int	main(void)
 {
-	char v[6] = "abcdf";
-	int x = ft_strlen(v);
-	printf("len v[]: %d\n", x);
-	printf("&src[]:%p\n",&v[6]);
+	int	i;
+	int	min;
+	int	max;
 
+	i = 0;
+	min = 3;
+	max = 15;
+	int	*x = ft_range(min, max);
+	while (i < (max - min))
+	{
+		printf("%d \n", x[i]);
+		i++;
+	}
 
-	char *dst = ft_strdup(v);
-	printf("&dst[]%p", &dst);
-	printf("%s", dst);
-	
 	return (0);
 }
 */
