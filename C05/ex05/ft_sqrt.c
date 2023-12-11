@@ -6,7 +6,7 @@
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 16:08:48 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/10 16:24:41 by smoraes-         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:22:57 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -14,31 +14,65 @@
 
 int	ft_sqrt(int nb)
 {
+	int	root;
 	int	count;
 
-	count = 0;
-	if (nb == 2 || nb <= 0)
-		return (0);
-	else if (nb == 1)
-		return (1);
-	while (nb > 1)
+	root = nb;
+	count = 1;
+	while (root > count)
 	{
-		if (nb % 2 != 0)
-			return (0);
-		else
-		{
-			nb /= 2;
-			count++;
-		}
+		root = (root + count) / 2;
+		count = nb / root;
 	}
-	return (count);
+	if ((count * count) == nb)
+		return (count);
+	else
+		return (0);
 }
 /*
-int main(void)
+int	atoi(char *argv)
 {
-	int rt = ft_sqrt(4);
-	printf("%d", rt);
+	short 	parity;
+	int		number;
 
+	parity = 0;
+	number = 0;
+	while ((*argv >= 9 && *argv <=13) || *argv == 32)
+		++argv;
+	while (*argv == '+' || *argv == '-')
+	{
+		if (*argv == '-')
+			parity++;
+		++argv;
+	}
+	while (*argv >= 48 && *argv <= 57)
+	{
+		number *= 10;
+		number += *argv -48;
+		++argv;
+	}
+	if (!(parity %2))
+		return (number);
+	return (-number);
+}
+*/
+/*
+int main(int argc, char **argv)
+{
+	(void)argc;
+	int rt = atoi(argv[1]);
+	printf("root \"atoi(argv[1])\": %d\n", rt);
+
+	while (rt-- >= 0)
+	{
+		printf("root %d\n", rt);
+
+		int sqrt = ft_sqrt(rt);
+		if (sqrt == 0)
+			printf("\n");
+		else
+			printf("sqrt: %d\n", sqrt);
+	}
 	return (0);
 }
 */
