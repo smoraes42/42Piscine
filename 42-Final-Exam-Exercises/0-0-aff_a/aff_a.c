@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   aff_a.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 11:54:17 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/12 12:31:07 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/12 14:02:15 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/12 14:46:20 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(1, &c, 1)
-{
-	
-}
 
 int main(int argc, char **argv)
 {
-	if (argc == 2)
+	int ind;
+
+	ind = 0;
+	if (argc!=2)
+		write(1, "a\n", 2);
+	else
 	{
-		i = 0;
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
-			i++;
-		while (argv[1][i] != '\0' && argv[1][i] != ' ' && argv[1][i] != '\t')
+		while (argv[1][ind] != '\0')
 		{
-			ft_putchar(argv[1][i]);
-			i++;
+			if(argv[1][ind] == 'a')
+			{
+				write(1,"a\n",2);
+				return (0);
+			}
+			else
+				ind++;
 		}
+		write(1, "\n", 1);
+		return (0);
 	}
-	ft_putchar('\n');
-	return (0);
 }
-
-
