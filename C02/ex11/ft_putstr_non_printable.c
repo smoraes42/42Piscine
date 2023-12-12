@@ -6,7 +6,7 @@
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 01:55:33 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/12 02:16:57 by smoraes-         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:48:59 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,20 @@
 
 void	ft_putstr_non_printable(char *str)
 {
-	unsigned int		a;
-	unsigned int		b;
-	unsigned int		i;
-	unsigned char		*hxa;
+	int		a;
+	int		b;
+	int		i;
+	char		*hxa;
 
 	i = 0;
 	hxa = "0123456789abcdef";
-	while (str[i])
+	while ((unsigned)str[i])
 	{
-		if ((str[i] <= 31) || (unsigned )str[i] >= 127)
+		if ((str[i] <= 31) || str[i] >= 127)
 		{
 			write(1, "\\", 1);
-			a = ((unsigned )str[i] / 16);
-			b = ((unsigned )str[i] % 16);
+			a = (str[i] / 16);
+			b = (str[i] % 16);
 			write(1, &hxa[a], 1);
 			write(1, &hxa[b], 1);
 		}
