@@ -6,42 +6,79 @@
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 01:55:33 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/04 14:46:24 by smoraes-         ###   ########.fr       */
+/*   Updated: 2023/12/12 02:16:57 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+//static void	print_hex(int np)
+//{
+//	char	*hex;
+//
+//	hex = "0123456789abcdef";
+//	if (np > 16)
+//	{
+//		print_hex(np / 10);
+//		print_hex(np % 10);
+//	}
+//	else
+//		write(1, &hex[np], 1);
+//}
+//
+//void	ft_putstr_non_printable(char *str)
+//{
+//	int	i;
+//
+//	i = 0;
+//	while (str[i])
+//	{
+//		if ((str[i] >= 0 && str[i] <= 31) || str[i] == 127)
+//		{
+//			write(1, "\\", 1);
+//			if (str[i] < 16)
+//				write(1, "0", 1);
+//			print_hex(str[i]);
+//		}
+//		else
+//			write(1, &str[i], 1);
+//		i += 1;
+//	}
+//}
+
 void	ft_putstr_non_printable(char *str)
 {
-	int		a;
-	int		b;
-	char	*hxa;
+	unsigned int		a;
+	unsigned int		b;
+	unsigned int		i;
+	unsigned char		*hxa;
 
+	i = 0;
 	hxa = "0123456789abcdef";
-	while (*str)
+	while (str[i])
 	{
-		if ((*str >= 0 && *str <= 31) || *str == 127)
+		if ((str[i] <= 31) || (unsigned )str[i] >= 127)
 		{
 			write(1, "\\", 1);
-			a = (*str / 16);
-			b = (*str % 16);
+			a = ((unsigned )str[i] / 16);
+			b = ((unsigned )str[i] % 16);
 			write(1, &hxa[a], 1);
 			write(1, &hxa[b], 1);
 		}
 		else
 		{
-			write(1, str, 1);
+			write(1, &str[i], 1);
 		}
-		str++;
+		i++;
 	}
 }
 /*
 int main(void)
 {
-	char *str = "This is pretty weird\n\t.";
+	//char *str = "This is pretty weird\n\t.";
 
-	ft_putstr_non_print(str);
+	char v[2] = "";
+	ft_putstr_non_printable(v);
 
 
 	return (0);

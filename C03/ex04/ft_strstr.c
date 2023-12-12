@@ -6,7 +6,7 @@
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:57:12 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/06 23:22:35 by smoraes-         ###   ########.fr       */
+/*   Updated: 2023/12/12 02:29:14 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,45 @@
 #include <stdlib.h>
 #include <strings.h>
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strstr(char *str, const char *to_find)
 {
-	while (*str)
+	int	i;
+	int	j;
+
+	i = 0;
+	if (to_find[0] == '\0')
+		return ((char *)str);
+	while (str[i] != '\0')
 	{
-		const char* a = str, *b = to_find;
-		while (*a == *b)
+		j = 0;
+		while (str[i + j] == to_find[j] && str[i + j] != '\0')
 		{
-			if (!*++b)
-			{
-				return (char*)str;
-			}
-			++a;
+			if (to_find[j +1] == '\0')
+				return ((char *)&str[i]);
+			j++;
 		}
-		++str;
+		i++;
 	}
 	return (0);
 }
+
+//char	*ft_strstr(char *str, char *to_find)
+//{
+//	while (*str)
+//	{
+//		const char* a = str, *b = to_find;
+//		while (*a == *b)
+//		{
+//			if (!*++b)
+//			{
+//				return (char*)str;
+//			}
+//			++a;
+//		}
+//		++str;
+//	}
+//	return (0);
+//}
 /*
 int main(void)
 {
