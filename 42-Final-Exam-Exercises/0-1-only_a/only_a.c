@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_first_param.c                                  :+:      :+:    :+:   */
+/*   only_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 17:06:25 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/12 22:33:03 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/13 01:09:22 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/13 01:11:49 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char **argv)
+int main(void)
 {
-	int ind;
-
-	ind = 0;
-	while (argv[1][ind] != '\0')
-		ind++;
-
-	return ind;
-}
-
-int main(int argc, char **argv)
-{
-	int len;
-
-	if (argc >= 2)
-	{
-		len = ft_strlen(argv);
-		write(1,argv[1],len);
-	}
-	write(1,"\n",1);
+	write(1,"a",1);
 	return (0);
 }

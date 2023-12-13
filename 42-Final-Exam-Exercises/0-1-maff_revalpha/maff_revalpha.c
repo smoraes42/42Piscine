@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_first_param.c                                  :+:      :+:    :+:   */
+/*   maff_revalpha.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 17:06:25 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/12 22:33:03 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/12 23:37:12 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/13 01:02:05 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char **argv)
+int main(void)
 {
-	int ind;
 
-	ind = 0;
-	while (argv[1][ind] != '\0')
-		ind++;
+	char ind;
+	char t_prn;
 
-	return ind;
-}
-
-int main(int argc, char **argv)
-{
-	int len;
-
-	if (argc >= 2)
+	ind = 'z';
+	t_prn = '0';
+	while (ind >= 'a')
 	{
-		len = ft_strlen(argv);
-		write(1,argv[1],len);
+		if (ind % 2 == 1)
+		{
+			t_prn = ind - 32;
+			write(1, &t_prn, 1);
+		}
+		else
+			write(1, &ind, 1);
+		ind--;
 	}
-	write(1,"\n",1);
 	return (0);
 }
+ 
