@@ -6,7 +6,7 @@
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:21:17 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/12 22:19:48 by smoraes-         ###   ########.fr       */
+/*   Updated: 2023/12/13 01:18:47 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,4 @@ int	ft_ultimate_range(int **range, int min, int max)
 
 int main(void)
 {
-	int arr[20];
-	int z = ft_ultimate_range(arr, 3, 20);
-	printf("%d", z);
-	return (0);
 }
