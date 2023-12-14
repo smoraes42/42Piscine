@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ulstr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 19:08:35 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/13 22:41:08 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/14 01:18:13 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/14 02:25:14 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strcat(char *dest, char *src)
+int main(int argc, char **argv)
 {
-	int	i_s;
-	int	i_ds;
+	int ind;
 
-	i_s = 0;
-	i_ds = 0;
-	while (dest[i_ds] != '\0')
-		i_ds++;
-	while (src[i_s] != '\0')
+	ind = 0;
+	if (argc != 2)
 	{
-		dest[i_ds] = src[i_s];
-		i_ds++;
-		i_s++;
+		write(1, "\n" ,1);
+		return (0);
 	}
-	dest[i_ds] = '\0';
-	return (dest);
-}
-/*
-int main(void)
-{
-	char s1[8] = "abcdefgh";
-	char dst[12] = "00";
-
-	ft_strcat(dst, s1);
-	printf("%s", dst);
-
+	while (argv[1][ind] != '\0')
+	{
+		if(argv[1][ind] >= 'a' && argv[1][ind] <= 'z')
+			argv[1][ind] -= 32;
+		else if(argv[1][ind] >= 'A' && argv[1][ind] <= 'Z')
+			argv[1][ind] += 32;
+		write(1,&argv[1][ind], 1);
+		ind++;
+	}
 	return (0);
 }
-*/

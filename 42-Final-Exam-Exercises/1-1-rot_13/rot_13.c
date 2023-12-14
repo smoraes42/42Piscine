@@ -1,45 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   rot_13.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 19:08:35 by smoraes-          #+#    #+#             */
-/*   Updated: 2023/12/13 22:41:08 by smoraes-         ###   ########.fr       */
+/*   Created: 2023/12/14 02:33:45 by smoraes-          #+#    #+#             */
+/*   Updated: 2023/12/14 02:46:25 by smoraes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strcat(char *dest, char *src)
+int main(int argc, char **argv)
 {
-	int	i_s;
-	int	i_ds;
+	int ind;
 
-	i_s = 0;
-	i_ds = 0;
-	while (dest[i_ds] != '\0')
-		i_ds++;
-	while (src[i_s] != '\0')
+	ind = 0;
+	while (argv[1][ind] != '\0')
 	{
-		dest[i_ds] = src[i_s];
-		i_ds++;
-		i_s++;
+		if (argv[1][ind] >= 'a' && argv[1][ind] <= 'z')
+			if(argv[1][ind] > 'n')
+				argv[1][ind] == 'a'
 	}
-	dest[i_ds] = '\0';
-	return (dest);
-}
-/*
-int main(void)
-{
-	char s1[8] = "abcdefgh";
-	char dst[12] = "00";
-
-	ft_strcat(dst, s1);
-	printf("%s", dst);
 
 	return (0);
 }
-*/
